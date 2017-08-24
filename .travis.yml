@@ -10,4 +10,5 @@ install:
   - docker-compose up -d
 
 script:
-  - ./test.sh
+  - docker-compose exec web24 bash -lc "which bundle" || (printf "\nbundle not found! Test failed."; exit 1)
+  - docker-compose exec web24 bash -lc "which gcloud" || (printf "\ngcloud ot found! Test failed."; exit 1)
