@@ -19,6 +19,6 @@ function test {
   printf "\n$service test complete. All tests successful.\n"
 }
 
-declare -a dependencies=(gcloud)
+declare -a dependencies=(bundle gcloud)
 
 test 2.4 web24
