@@ -10,5 +10,6 @@ install:
   - docker-compose up -d
 
 script:
-  - docker-compose exec web24 bash -lc "which bundle" || (printf "\nbundle not found! Test failed."; exit 1)
-  - docker-compose exec web24 bash -lc "which gcloud" || (printf "\ngcloud ot found! Test failed."; exit 1)
+  - docker-compose exec rb24 bash -lc "which bundle || (printf 'bundle not found! Test failed.'; exit 1)"
+  - docker-compose exec rb24 bash -lc "which gcloud || (printf 'gcloud not found! Test failed.'; exit 1)"
+  - docker-compose exec rb24 bash -lc "test -f $HOME/cloud_sql_proxy || (printf 'cloud_sql_proxy not found! Test failed.'; exit 1)"
