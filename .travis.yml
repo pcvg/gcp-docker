@@ -9,6 +9,7 @@ env:
 install:
   - docker-compose --version
   - docker-compose up -d
+  - docker-compose ps
 
 script:
   - docker-compose exec rb24 bash -lc "which bundle || (printf 'bundle not found! Test failed.'; exit 1)"
