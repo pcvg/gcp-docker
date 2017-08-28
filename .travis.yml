@@ -3,15 +3,9 @@ sudo: required
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.15.0
-
 install:
-  - docker-compose --version
-  - docker-compose up -d
-  - docker-compose ps
+  - docker build . -t gcp-docker:167.0.0
 
 script:
-  - docker-compose exec rb24 bash -lc "which bundle || (printf 'bundle not found! Test failed.'; exit 1)"
-  - docker-compose exec rb24 bash -lc "which gcloud || (printf 'gcloud not found! Test failed.'; exit 1)"
-  - docker-compose exec rb24 bash -lc "test -f $HOME/cloud_sql_proxy || (printf 'cloud_sql_proxy not found! Test failed.'; exit 1)"
+  - docker run gcp-docker:167.0.0 bash -c "which gcloud || (printf 'gcloud not found.'; exit 0)"
+  - docker run gcp-docker:167.0.0 bash -c "test -f $HOME/cloud_sql_proxy || (printf 'cloud_sql_proxy not found.'; exit 1)"
