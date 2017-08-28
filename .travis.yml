@@ -7,5 +7,5 @@ install:
   - docker build . -t gcp-docker:167.0.0
 
 script:
-  - docker run gcp-docker:167.0.0 bash -c "which gcloud || (printf 'gcloud not found.'; exit 0)"
+  - docker run gcp-docker:167.0.0 bash -c "which gcloud || (printf 'gcloud not found.'; exit 1)"
   - docker run gcp-docker:167.0.0 bash -c "test -f $HOME/cloud_sql_proxy || (printf 'cloud_sql_proxy not found.'; exit 1)"
