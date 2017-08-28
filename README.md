@@ -1,4 +1,4 @@
-# gcp-ruby [![Build Status](https://travis-ci.org/pcvg/gcp-docker.svg?branch=master)](https://travis-ci.org/pcvg/gcp-docker)
+# gcp-docker [![Build Status](https://travis-ci.org/pcvg/gcp-docker.svg?branch=master)](https://travis-ci.org/pcvg/gcp-docker)
 
 Google Cloud capable Docker image for CI.
 
